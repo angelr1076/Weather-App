@@ -1,3 +1,14 @@
 # Project: Weather App
 
-Instructions and user stories to come...
+## Built using
+
+---
+
+- JavaScript
+- Webpack5
+- Dotenv
+- Fetch API
+- Async/Await API
+- OpenWeatherMap API
+
+More instructions and user stories to come...

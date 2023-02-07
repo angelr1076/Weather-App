@@ -3,7 +3,7 @@ async function getWeather(city) {
   try {
     const response = await fetch(endPoint);
     const data = await response.json();
-    console.log(data);
+    return data;
   } catch (e) {
     console.log(e);
   }
