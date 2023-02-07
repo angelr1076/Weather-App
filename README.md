@@ -2,8 +2,6 @@
 
 ## Built using
 
----
-
 - JavaScript
 - Webpack5
 - Dotenv
