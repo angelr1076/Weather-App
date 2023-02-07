@@ -1,5 +1,6 @@
 import './styles/style.css';
 import bitmoji from './images/bitmojime.png';
+import { getWeather } from './components/search';
 
 function myComponent() {
   const mainContainer = document.createElement('div');
@@ -14,16 +15,4 @@ function myComponent() {
   return mainContainer;
 }
 document.body.appendChild(myComponent());
-
-async function getWeather(city) {
-  const endPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
-  try {
-    const response = await fetch(endPoint);
-    const data = await response.json();
-    console.log(data);
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-getWeather('London');
+getWeather('San Diego');
