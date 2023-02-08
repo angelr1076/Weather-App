@@ -1,12 +1,27 @@
-async function getWeather(city) {
-  const endPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
-  try {
-    const response = await fetch(endPoint);
-    const data = await response.json();
-    return data;
-  } catch (e) {
+import { getWeather } from './weatherAPI';
+
+function submitSearchForm(el) {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    const search = document.querySelector('#search').value;
+    const message = document.querySelector('#msg');
+    const form = document.querySelector('#form');
     console.log(e);
-  }
+
+    if (!search) {
+      message.textContent = 'Please search by city name.';
+      return setTimeout(() => {
+        message.textContent = '';
+      }, 2000);
+    }
+    getWeather(search);
+    form.reset();
+  });
 }
 
-export { getWeather };
+function handleSubmitSearch() {
+  const submitSearchBtn = document.querySelector('#submit');
+  return submitSearchForm(submitSearchBtn);
+}
+
+export { handleSubmitSearch };
