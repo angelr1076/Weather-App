@@ -1,4 +1,4 @@
-import { getWeather } from './weatherAPI';
+import { dailyForecast, fiveDayForecast } from './weatherAPI';
 
 function submitSearchForm(el) {
   el.addEventListener('click', e => {
@@ -14,7 +14,8 @@ function submitSearchForm(el) {
         message.textContent = '';
       }, 2000);
     }
-    getWeather(search);
+    dailyForecast(search);
+    fiveDayForecast(search);
     form.reset();
   });
 }
