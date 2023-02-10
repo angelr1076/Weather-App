@@ -18,8 +18,7 @@ function renderDaily(obj) {
     const { temp, feels_like, humidity, temp_min, temp_max } = main;
     const { description, icon } = weather[0];
     const date = new Date(dt * 1000);
-    const timeZone = 'America/New_York';
-    const zonedDate = formatInTimeZone(date, timeZone, 'PPpp');
+    const zonedDate = format(date, 'EEEE LLLL do, yyyy');
 
     // left daily container
     const cityLi = document.createElement('h1');
@@ -80,7 +79,7 @@ function renderFiveDay(obj) {
     console.log('five day', weatherObj);
     weatherObj.list.forEach(weatherData => {
       const { dt, main, weather, wind } = weatherData;
-      // const day = format(new Date(dt * 1000), 'iii MMM d, y');
+      const day = format(new Date(dt * 1000), 'iii MMM d, y');
       const date = new Date(dt * 1000);
       const timeZone = 'America/New_York';
       const zonedDate = formatInTimeZone(date, timeZone, 'PPpp');
