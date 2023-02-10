@@ -7,7 +7,6 @@ async function dailyForecast(city) {
   try {
     const response = await fetch(endPoint);
     const data = await response.json();
-    // console.log(data);
     return renderDaily(data);
   } catch (e) {
     console.log(e);
@@ -19,7 +18,6 @@ async function fiveDayForecast(city) {
   try {
     const response = await fetch(endPoint);
     const data = await response.json();
-    // console.log(data);
     return renderFiveDay(data);
   } catch (e) {
     console.log(e);

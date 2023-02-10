@@ -8,27 +8,34 @@
   </head>
   <body>
     <div class="hero">
-      <h1>Weather App</h1>
       <h3 id="msg" class="msg"></h3>
     </div>
-    <div class="section">
-      <div class="form-container">
-        <form action="" id="form" class="form">
-          <label for="search">Search by City Name:</label>
-          <input type="text" name="search" id="search" class="search" />
-          <button type="button" id="submit" class="submit">Submit</button>
-        </form>
+    <div class="section daily-weather">
+      <div id="cityDiv" class="weather-display__city-div"></div>
+      <div class="weather-display">
+        <div id="dailyContainerLeft" class="weather-display__left"></div>
+        <div id="dailyContainerRight" class="weather-display__right"></div>
       </div>
     </div>
     <div class="section">
-      <div class="weather-display">
-        <div id="cityDiv" class="weather-display__city-div"></div>
-        <div id="dailyContainer" class="weather-display__daily-container"></div>
-        <div
-          id="fiveDayContainer"
-          class="weather-display__five-day-container"
-        ></div>
+      <div class="input-container">
+        <label for="search">Search by City Name:</label>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="search"
+          placeholder="City name here"
+        />
+        <button type="button" id="submit" class="submit">Submit</button>
       </div>
+    </div>
+    <div class="section weather-outlook">
+      <h1>5-day outlook</h1>
+      <div
+        id="fiveDayContainer"
+        class="weather-display__five-day-container scrolling-wrapper"
+      ></div>
     </div>
   </body>
 </html>

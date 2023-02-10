@@ -13,3 +13,5 @@ node_modules
 # VS Code
 .vscode
 !.vscode/launch.json
+
+blueprint.txt

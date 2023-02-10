@@ -1,12 +1,10 @@
 import { dailyForecast, fiveDayForecast } from './weatherAPI';
 
-function submitSearchForm(el) {
+function submitOnBtn(el) {
   el.addEventListener('click', e => {
     e.preventDefault();
-    const search = document.querySelector('#search').value;
+    const search = document.querySelector('#search');
     const message = document.querySelector('#msg');
-    const form = document.querySelector('#form');
-    console.log(e);
 
     if (!search) {
       message.textContent = 'Please search by city name.';
@@ -14,15 +12,28 @@ function submitSearchForm(el) {
         message.textContent = '';
       }, 2000);
     }
-    dailyForecast(search);
-    fiveDayForecast(search);
-    form.reset();
+    dailyForecast(search.value);
+    fiveDayForecast(search.value);
+    search.value = '';
+  });
+}
+
+function submitOnEnter() {
+  const search = document.querySelector('#search');
+  search.addEventListener('keyup', e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+
+      dailyForecast(search.value);
+      fiveDayForecast(search.value);
+      search.value = '';
+    }
   });
 }
 
 function handleSubmitSearch() {
   const submitSearchBtn = document.querySelector('#submit');
-  return submitSearchForm(submitSearchBtn);
+  return submitOnBtn(submitSearchBtn);
 }
 
-export { handleSubmitSearch };
+export { handleSubmitSearch, submitOnEnter };
