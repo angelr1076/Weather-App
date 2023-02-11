@@ -79,7 +79,8 @@ function renderFiveDay(obj) {
     console.log('five day', weatherObj);
     weatherObj.list.forEach(weatherData => {
       const { dt, main, weather, wind } = weatherData;
-      const day = format(new Date(dt * 1000), 'iii MMM d, y');
+      const { sunrise } = weatherData.sys;
+      // const day = format(new Date(dt * 1000), 'iii MMM d, y');
       const date = new Date(dt * 1000);
       const timeZone = 'America/New_York';
       const zonedDate = formatInTimeZone(date, timeZone, 'PPpp');
