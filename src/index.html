@@ -8,23 +8,8 @@
   </head>
   <body>
     <div class="hero">
-      <h3 id="msg" class="msg"></h3>
-    </div>
-    <div class="section daily-weather">
-      <div id="cityDiv" class="weather-display__city-div"></div>
-      <div class="weather-display">
-        <div id="dailyContainerLeft" class="weather-display__left"></div>
-        <div id="toggleContainer">
-          <button type="button" id="tempToggleBtn" class="toggle btn">
-            toggle f/c
-          </button>
-        </div>
-        <div id="dailyContainerRight" class="weather-display__right"></div>
-      </div>
-    </div>
-    <div class="section">
       <div class="input-container">
-        <label for="search">Search by City Name:</label>
+        <label for="search" class="search-label">Search by City Name</label>
         <input
           type="text"
           name="search"
@@ -32,10 +17,25 @@
           class="search"
           placeholder="City name here"
         />
-        <button type="button" id="submit" class="submit btn">Submit</button>
+        <i id="submit" class="bi bi-search submit btn"></i>
+      </div>
+      <div id="msg" class="msg"></div>
+    </div>
+    <div class="daily-weather">
+      <div class="weather-display">
+        <div id="dailyContainerLeft" class="weather-display__left"></div>
+        <div id="dailyContainerRight" class="weather-display__right">
+          <div id="toggleContainer">
+            <label class="toggle">
+              <input class="toggle-checkbox" type="checkbox" checked />
+              <div class="toggle-switch"></div>
+              <span id="toggleLabel" class="toggle-label">&#8457;</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="section weather-outlook">
+    <div class="weather-outlook">
       <h1>5 Day/3 Hour Forecast</h1>
       <div
         id="fiveDayContainer"

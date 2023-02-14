@@ -9,19 +9,18 @@ import {
 } from './helpers';
 
 function renderDaily(obj) {
-  const cityContainer = document.querySelector('#cityDiv');
   const dataContainerLeft = document.querySelector('#dailyContainerLeft');
   const dataContainerRight = document.querySelector('#dailyContainerRight');
-  const tempToggleBtn = document.querySelector('#tempToggleBtn');
-  clearEl(cityContainer);
-  clearEl(dataContainerLeft);
-  clearEl(dataContainerRight);
+  const toggleContainer = document.querySelector('#toggleContainer');
+  const tempToggleSlider = document.querySelector('.toggle-checkbox');
   const weatherString = JSON.stringify(obj);
   let scaleBool = true;
+  clearEl(dataContainerLeft);
+  clearEl(dataContainerRight);
 
-  if (weatherString) {
+  if (weatherString !== null) {
     const weatherObj = JSON.parse(weatherString);
-    console.log('daily', weatherObj);
+    // console.log('daily', weatherObj);
     const { dt, main, name, weather } = weatherObj;
     let { temp, feels_like, humidity, temp_min, temp_max } = main;
     const { description, icon } = weather[0];
@@ -31,12 +30,18 @@ function renderDaily(obj) {
     feels_like = kelTempToFahr(feels_like);
     temp_min = kelTempToFahr(temp_min);
     temp_max = kelTempToFahr(temp_max);
-    // toggleTemp(tempToggleBtn, scaleBool, temp);
 
     const date = new Date(dt * 1000);
     const zonedDate = format(date, 'EEEE LLLL do, yyyy');
 
     // left daily container
+    const cityContainer = document.createElement('div');
+    cityContainer.setAttribute(
+      'id',
+      'cityDiv',
+      'class',
+      'weather-display__city-div',
+    );
     const cityLi = document.createElement('h1');
     const weatherListLeft = document.createElement('ul');
     const dateLi = document.createElement('li');
@@ -52,9 +57,9 @@ function renderDaily(obj) {
 
     // right daily container
     const weatherListRight = document.createElement('ul');
-    const feelsLikeLi = document.createElement('li');
-    const tempMinMax = document.createElement('li');
-    const humidLi = document.createElement('li');
+    const feelsLikeLi = document.createElement('div');
+    const tempMinMax = document.createElement('div');
+    const humidLi = document.createElement('div');
 
     // set left container el values
     cityLi.textContent = name;
@@ -65,18 +70,22 @@ function renderDaily(obj) {
     weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
     // set right container el values
-    feelsLikeLi.innerHTML = `Feels like: ${tempFeels}${degreeSym}`;
-    tempMinMax.innerHTML = `L: ${tempMin}${degreeSym} | H: ${tempMax}${degreeSym}`;
-    humidLi.innerHTML = `Humidity: ${humidity}${percentSym}`;
+    feelsLikeLi.innerHTML = `Feels like ${tempFeels}${degreeSym}`;
+    tempMinMax.innerHTML = `L ${tempMin}${degreeSym} | H ${tempMax}${degreeSym}`;
+    humidLi.innerHTML = `Humidity ${humidity}${percentSym}`;
     feelsLikeLi.dataset.id = 'feels';
     tempMinMax.dataset.id = 'minmax';
 
     // append to DOM
     cityContainer.appendChild(cityLi);
+
+    weatherListLeft.appendChild(cityContainer);
     weatherListLeft.appendChild(dateLi);
     weatherListLeft.appendChild(tempLi);
     weatherListLeft.appendChild(weatherDesc);
     weatherListLeft.appendChild(weatherIcon);
+
+    weatherListRight.appendChild(toggleContainer);
     weatherListRight.appendChild(feelsLikeLi);
     weatherListRight.appendChild(humidLi);
     weatherListRight.appendChild(tempMinMax);
@@ -85,10 +94,10 @@ function renderDaily(obj) {
     // right side weather stats
     dataContainerRight.appendChild(weatherListRight);
     // toggle scaleBool/celsius
-    toggleTemp(tempToggleBtn, scaleBool, temp, tempLi, degreeSym);
-    toggleTemp(tempToggleBtn, scaleBool, feels_like, feelsLikeLi, degreeSym);
+    toggleTemp(tempToggleSlider, scaleBool, temp, tempLi, degreeSym);
+    toggleTemp(tempToggleSlider, scaleBool, feels_like, feelsLikeLi, degreeSym);
     toggleMinMax(
-      tempToggleBtn,
+      tempToggleSlider,
       scaleBool,
       tempMin,
       tempMax,
@@ -102,18 +111,17 @@ function renderFiveDay(obj) {
   const dataContainer = document.querySelector('#fiveDayContainer');
   clearEl(dataContainer);
   const weatherString = JSON.stringify(obj);
-  const tempToggleBtn = document.querySelector('#tempToggleBtn');
+  const tempToggleSlider = document.querySelector('.toggle-checkbox');
   let scaleBool = true;
 
-  if (weatherString) {
+  if (weatherString !== null) {
     const weatherObj = JSON.parse(weatherString);
-    console.log('five day', weatherObj);
+
     weatherObj.list.forEach(weatherData => {
       const { dt, main, weather, wind } = weatherData;
       main.temp = kelTempToFahr(main.temp);
       const { sunrise } = weatherData.sys;
       const degreeSym = '&#176;';
-      // const day = format(new Date(dt * 1000), 'iii MMM d, y');
       const date = new Date(dt * 1000);
       const timeZone = 'America/New_York';
       const zonedDate = formatInTimeZone(date, timeZone, 'PPpp');
@@ -142,7 +150,7 @@ function renderFiveDay(obj) {
       displayDiv.appendChild(fiveDayWeatherList);
       dataContainer.appendChild(displayDiv);
 
-      toggleTemp(tempToggleBtn, scaleBool, main.temp, tempLi, degreeSym);
+      toggleTemp(tempToggleSlider, scaleBool, main.temp, tempLi, degreeSym);
     });
   }
 }

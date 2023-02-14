@@ -1,8 +1,8 @@
 import './styles/style.css';
 import { dailyForecast, fiveDayForecast } from './components/weatherAPI';
 import { handleSubmitSearch, submitOnEnter } from './components/search';
-import { fr } from 'date-fns/locale';
-import { sub } from 'date-fns';
+import { toggleLabel } from './components/helpers';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function myComponent() {
   const mainContainer = document.createElement('div');
@@ -15,6 +15,7 @@ document.body.appendChild(myComponent());
 window.addEventListener('load', function () {
   handleSubmitSearch();
   submitOnEnter();
+  toggleLabel();
 
   // Load default
   dailyForecast('San Diego');

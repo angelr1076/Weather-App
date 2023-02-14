@@ -1,7 +1,6 @@
 import { renderDaily, renderFiveDay } from './views';
 
 // Create two functions: daily  and 5 day weather
-
 async function dailyForecast(city) {
   const endPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
   try {
