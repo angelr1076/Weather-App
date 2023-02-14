@@ -7,6 +7,9 @@
 - Dotenv
 - Fetch API
 - Async/Await API
+- Date-fns-tz
 - OpenWeatherMap API
+- Bootstrap Icons
+- Toptal Icons
 
 More instructions and user stories to come...
