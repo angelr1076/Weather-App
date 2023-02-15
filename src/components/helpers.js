@@ -10,6 +10,16 @@ function kelTempToFahr(temp) {
   return ((temp - 273.15) * 9) / 5 + 32;
 }
 
+function makeVisible(el) {
+  el.classList.remove('hidden');
+  el.classList.add('visible');
+}
+
+function makeHidden(el) {
+  el.classList.remove('visible');
+  el.classList.add('hidden');
+}
+
 // create function that takes a temp bool for fahrenheit value and temp value as params
 function toggleTemp(btn, bool, temp, el, symbol) {
   btn.addEventListener('change', e => {
@@ -50,7 +60,7 @@ function toggleMinMax(btn, bool, temp1, temp2, el, symbol) {
       temp2 = (temp2 - 32) * (5 / 9);
       el.innerHTML = `<i class="bi bi-thermometer"></i> <span class="temp-secondary">${truncate(
         temp1,
-      )}${degreeSym}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
+      )}${symbol}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
         temp2,
       )}${symbol}</span>`;
       bool = !bool; // flip to false
@@ -59,7 +69,7 @@ function toggleMinMax(btn, bool, temp1, temp2, el, symbol) {
       temp2 = (temp2 * 9) / 5 + 32;
       el.innerHTML = `<i class="bi bi-thermometer"></i> <span class="temp-secondary">${truncate(
         temp1,
-      )}${degreeSym}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
+      )}${symbol}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
         temp2,
       )}${symbol}</span>`;
       bool = !bool; // flip to true
@@ -93,6 +103,8 @@ function toggleColor() {
 export {
   truncate,
   clearEl,
+  makeVisible,
+  makeHidden,
   kelTempToFahr,
   toggleTemp,
   toggleMinMax,

@@ -1,4 +1,5 @@
 import { dailyForecast, fiveDayForecast } from './weatherAPI';
+import { makeVisible, makeHidden } from './helpers';
 
 function submitOnBtn(el) {
   el.addEventListener('click', e => {
@@ -6,9 +7,11 @@ function submitOnBtn(el) {
     const search = document.querySelector('#search');
     const message = document.querySelector('#msg');
 
-    if (!search) {
+    if (!search.value) {
+      makeVisible(message);
       message.textContent = 'Please search by city name.';
       return setTimeout(() => {
+        makeHidden(message);
         message.textContent = '';
       }, 2000);
     }
@@ -20,13 +23,22 @@ function submitOnBtn(el) {
 
 function submitOnEnter() {
   const search = document.querySelector('#search');
+  const message = document.querySelector('#msg');
+
   search.addEventListener('keyup', e => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && search.value) {
       e.preventDefault();
 
       dailyForecast(search.value);
       fiveDayForecast(search.value);
       search.value = '';
+    } else if (e.keyCode === 13 && !search.value) {
+      makeVisible(message);
+      message.textContent = 'Please search by city name.';
+      return setTimeout(() => {
+        makeHidden(message);
+        message.textContent = '';
+      }, 2000);
     }
   });
 }
