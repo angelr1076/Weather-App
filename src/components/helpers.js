@@ -20,7 +20,9 @@ function toggleTemp(btn, bool, temp, el, symbol) {
       if (el.dataset.id === 'temp') {
         el.innerHTML = `${truncate(temp)}${symbol}`;
       } else if (el.dataset.id === 'feels') {
-        el.innerHTML = `Feels like ${truncate(temp)}${symbol}`;
+        el.innerHTML = `<i class="bi bi-thermometer-half"></i> Feels like <span class="temp-secondary">${truncate(
+          temp,
+        )}${symbol}</span>`;
       } else {
       }
       bool = !bool; // flip to false
@@ -29,7 +31,9 @@ function toggleTemp(btn, bool, temp, el, symbol) {
       if (el.dataset.id === 'temp') {
         el.innerHTML = `${truncate(temp)}${symbol}`;
       } else if (el.dataset.id === 'feels') {
-        el.innerHTML = `Feels like ${truncate(temp)}${symbol}`;
+        el.innerHTML = `<i class="bi bi-thermometer-half"></i> Feels like <span class="temp-secondary">${truncate(
+          temp,
+        )}${symbol}</span>`;
       } else {
       }
       bool = !bool; // flip to true
@@ -44,16 +48,20 @@ function toggleMinMax(btn, bool, temp1, temp2, el, symbol) {
     if (bool === true) {
       temp1 = (temp1 - 32) * (5 / 9);
       temp2 = (temp2 - 32) * (5 / 9);
-      el.innerHTML = `L ${truncate(temp1)}${symbol} | H ${truncate(
+      el.innerHTML = `<i class="bi bi-thermometer"></i> <span class="temp-secondary">${truncate(
+        temp1,
+      )}${degreeSym}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
         temp2,
-      )}${symbol}`;
+      )}${symbol}</span>`;
       bool = !bool; // flip to false
     } else {
       temp1 = (temp1 * 9) / 5 + 32;
       temp2 = (temp2 * 9) / 5 + 32;
-      el.innerHTML = `L ${truncate(temp1)}${symbol} | H ${truncate(
+      el.innerHTML = `<i class="bi bi-thermometer"></i> <span class="temp-secondary">${truncate(
+        temp1,
+      )}${degreeSym}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${truncate(
         temp2,
-      )}${symbol}`;
+      )}${symbol}</span>`;
       bool = !bool; // flip to true
     }
   });
@@ -69,6 +77,19 @@ function toggleLabel() {
   });
 }
 
+function toggleColor() {
+  const checkbox = document.querySelector('.toggle-checkbox');
+  checkbox.addEventListener('change', () => {
+    if (!checkbox.checked) {
+      document.body.classList.remove('fahrenheit-color');
+      document.body.classList.add('celsius-color');
+    } else {
+      document.body.classList.remove('celsius-color');
+      document.body.classList.add('fahrenheit-color');
+    }
+  });
+}
+
 export {
   truncate,
   clearEl,
@@ -76,4 +97,5 @@ export {
   toggleTemp,
   toggleMinMax,
   toggleLabel,
+  toggleColor,
 };

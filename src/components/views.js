@@ -44,6 +44,7 @@ function renderDaily(obj) {
     );
     const cityLi = document.createElement('h1');
     const weatherListLeft = document.createElement('ul');
+    weatherListLeft.setAttribute('class', 'left-display');
     const dateLi = document.createElement('li');
     const tempLi = document.createElement('li');
 
@@ -57,22 +58,25 @@ function renderDaily(obj) {
 
     // right daily container
     const weatherListRight = document.createElement('ul');
+    weatherListRight.setAttribute('class', 'right-display');
     const feelsLikeLi = document.createElement('div');
     const tempMinMax = document.createElement('div');
     const humidLi = document.createElement('div');
 
     // set left container el values
     cityLi.textContent = name;
+    cityLi.setAttribute('class', 'city-name');
     dateLi.textContent = zonedDate;
     tempLi.dataset.id = 'temp';
+    tempLi.setAttribute('class', 'temp-value');
     tempLi.innerHTML = `${tempVal}${degreeSym}`;
     weatherDesc.textContent = description;
     weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
     // set right container el values
-    feelsLikeLi.innerHTML = `Feels like ${tempFeels}${degreeSym}`;
-    tempMinMax.innerHTML = `L ${tempMin}${degreeSym} | H ${tempMax}${degreeSym}`;
-    humidLi.innerHTML = `Humidity ${humidity}${percentSym}`;
+    feelsLikeLi.innerHTML = `<i class="bi bi-thermometer-half"></i> Feels like <span class="temp-secondary">${tempFeels}${degreeSym}</span>`;
+    humidLi.innerHTML = `<i class="bi bi-moisture"></i> <span class="temp-secondary">${humidity}${percentSym}</span>`;
+    tempMinMax.innerHTML = `<i class="bi bi-thermometer"></i> <span class="temp-secondary">${tempMin}${degreeSym}</span> | <i class="bi bi-thermometer-high"></i> <span class="temp-secondary">${tempMax}${degreeSym}</span>`;
     feelsLikeLi.dataset.id = 'feels';
     tempMinMax.dataset.id = 'minmax';
 
@@ -133,6 +137,7 @@ function renderFiveDay(obj) {
       fiveDayWeatherList.setAttribute('class', 'card__ul');
       const dateLi = document.createElement('li');
       const tempLi = document.createElement('li');
+      tempLi.setAttribute('class', 'temp-value-small');
       tempLi.dataset.id = 'temp';
       const weatherDesc = document.createElement('li');
       const weatherIcon = document.createElement('img');
