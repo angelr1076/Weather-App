@@ -26,6 +26,8 @@ Weather app project for the Odin Project's JavaScript course path for exposure t
 
 If you'd like to clone this project, `git clone` using the HTTPS Github URL for this repository. Remember to follow instructions to add a .env file via the .env.example file. It's recommended that you host on Netlify in order to load hidden env variables in order to use your personal API key.
 
+## Image Gallery
+
 ![Full Screen](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477650/Odin%20Weather%20App/fullscreen.png 'full screen')
 ![iPad](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477649/Odin%20Weather%20App/responsive.png 'ipad screen')
 ![Mobile](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477649/Odin%20Weather%20App/mobile.png 'mobile screen')
