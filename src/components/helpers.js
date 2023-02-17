@@ -100,6 +100,14 @@ function toggleColor() {
   });
 }
 
+// write a function to look to see if the body contains a class of celsius-color or fahrenheit-color
+
+// if fahrenheit class, toggle bool to true and return fahrenheit
+
+// else toggle bool to false and return celsius
+
+// call this in the views temp functions
+
 export {
   truncate,
   clearEl,

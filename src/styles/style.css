@@ -182,6 +182,10 @@ li {
   line-height: 2.25;
 }
 
+.bi {
+  font-size: 1.4em;
+}
+
 .toggle {
   cursor: pointer;
   display: inline-block;
