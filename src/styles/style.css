@@ -47,13 +47,13 @@
 
 body {
   margin-top: 1.5em;
-  background-color: var(--vanilla);
+  background-color: var(--black-faded);
 }
 
 html {
   font-family: var(--montse);
   text-transform: capitalize;
-  color: var(--mainly-blue);
+  color: var(--vanilla);
 }
 
 li {
@@ -68,15 +68,6 @@ li {
   visibility: hidden !important;
 }
 
-.fahrenheit-color {
-  background-color: var(--vanilla);
-}
-
-.celsius-color {
-  background-color: var(--black-faded);
-  color: var(--vanilla);
-}
-
 .search-label {
   width: 100%;
 }
@@ -87,6 +78,10 @@ li {
   border: 1px solid black;
   border-radius: 100px;
   outline: none;
+}
+
+.bi-search {
+  color: var(--black-blur);
 }
 
 .input-container {

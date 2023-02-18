@@ -87,27 +87,6 @@ function toggleLabel() {
   });
 }
 
-function toggleColor() {
-  const checkbox = document.querySelector('.toggle-checkbox');
-  checkbox.addEventListener('change', () => {
-    if (!checkbox.checked) {
-      document.body.classList.remove('fahrenheit-color');
-      document.body.classList.add('celsius-color');
-    } else {
-      document.body.classList.remove('celsius-color');
-      document.body.classList.add('fahrenheit-color');
-    }
-  });
-}
-
-// write a function to look to see if the body contains a class of celsius-color or fahrenheit-color
-
-// if fahrenheit class, toggle bool to true and return fahrenheit
-
-// else toggle bool to false and return celsius
-
-// call this in the views temp functions
-
 export {
   truncate,
   clearEl,
@@ -117,5 +96,4 @@ export {
   toggleTemp,
   toggleMinMax,
   toggleLabel,
-  toggleColor,
 };
