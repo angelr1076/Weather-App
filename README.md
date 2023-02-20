@@ -6,7 +6,6 @@ Weather app project for the Odin Project's JavaScript course path for exposure t
 
 - Display daily or five day/3 hour forecast weather data for a given location
 - Display data in fahrenheit or celsius
-- Display in light/dark mode depending on temp scale toggle
 - Bundle using Webpack
 - Display using unique icons for specific weather data
 
