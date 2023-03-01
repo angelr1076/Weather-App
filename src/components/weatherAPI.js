@@ -5,7 +5,9 @@ import { makeVisible, makeHidden } from './helpers';
 async function dailyForecast(city) {
   // on search, reset the toggle button to fahrenheit
   let checkbox = document.querySelector('.toggle-checkbox');
+  const label = document.querySelector('.toggle-label');
   checkbox.checked = true;
+  label.innerHTML = '&#8457;';
 
   const endPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
   const message = document.querySelector('#msg');

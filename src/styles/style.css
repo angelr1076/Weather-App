@@ -143,6 +143,10 @@ li {
   align-items: center;
 }
 
+.weather-outlook__header {
+  margin-bottom: 0.75em;
+}
+
 .card {
   padding: 1em;
   line-height: 1.5;
@@ -151,10 +155,6 @@ li {
 
 .card__ul {
   width: 150px;
-}
-
-.weather-outlook__header {
-  margin-bottom: 0.75em;
 }
 
 .temp-value-small {
