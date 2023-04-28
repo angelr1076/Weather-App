@@ -30,5 +30,3 @@ If you'd like to clone this project, `git clone` using the HTTPS Github URL for 
 ## Image Gallery
 
 ![Full Screen](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477650/Odin%20Weather%20App/fullscreen.png 'full screen')
-![iPad](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477649/Odin%20Weather%20App/responsive.png 'ipad screen')
-![Mobile](https://res.cloudinary.com/angelrodriguez/image/upload/v1676477649/Odin%20Weather%20App/mobile.png 'mobile screen')
