@@ -7,9 +7,10 @@ Weather app project for the Odin Project's JavaScript course path for exposure t
 ## User Stories
 
 - Display daily or five day/3 hour forecast weather data for a given location
-- Display data in fahrenheit or celsius
+- Display data in fahrenheit or celsius via a toggle button
 - Bundle using Webpack
 - Display using unique icons for specific weather data
+- Added a dark/light toggle theme
 
 ## Built Using
 
