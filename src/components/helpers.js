@@ -87,6 +87,24 @@ function toggleLabel() {
   });
 }
 
+function toggleTheme() {
+  const app = document.querySelector('#app');
+  const themeToggle = document.querySelector('#themeToggle');
+  const themeLabel = document.querySelector('#themeLabel');
+
+  themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+      app.classList.remove('light');
+      app.classList.add('dark');
+      themeLabel.innerHTML = `<i class="bi bi-moon-stars"></i>`;
+    } else {
+      app.classList.remove('dark');
+      app.classList.add('light');
+      themeLabel.innerHTML = `<i class="bi bi-brightness-high"></i>`;
+    }
+  });
+}
+
 export {
   truncate,
   clearEl,
@@ -96,4 +114,5 @@ export {
   toggleTemp,
   toggleMinMax,
   toggleLabel,
+  toggleTheme,
 };

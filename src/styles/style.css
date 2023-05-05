@@ -169,14 +169,18 @@ li {
   padding: 1em;
   border-radius: 0;
   margin: 1em 0;
-  background-color: var(--black-blur);
 }
 
 .left-display {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
   line-height: 1.75;
 }
 
 .right-display {
+  display: flex;
+  flex-direction: column;
   line-height: 2.25;
 }
 
@@ -184,7 +188,16 @@ li {
   font-size: 1.4em;
 }
 
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin: 1em 0;
+}
+
 .toggle {
+  display: flex !important;
+  align-items: center;
   cursor: pointer;
   display: inline-block;
 }
@@ -198,6 +211,7 @@ li {
   position: relative;
   vertical-align: middle;
   transition: background 0.25s;
+  margin: 0 0.5em;
 }
 
 .toggle-switch:before,
@@ -236,10 +250,15 @@ li {
   visibility: hidden;
 }
 
-.toggle-label {
-  margin-left: 5px;
-  position: relative;
-  top: 2px;
+/* Dark/light mode */
+body.dark {
+  background-color: var(--black-blur);
+  color: var(--vanilla);
+}
+
+body.light {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 @media screen and (max-width: 850px) {
@@ -254,6 +273,13 @@ li {
 
 @media screen and (max-width: 600px) {
   .weather-display {
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .left-display,
+  .right-display {
+    align-items: center;
   }
 }

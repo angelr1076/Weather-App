@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body>
+  <body id="app" class="light">
     <div class="hero">
       <div class="input-container">
         <label for="search" class="search-label">Search by City Name</label>
@@ -21,15 +21,20 @@
       </div>
       <div id="msg" class="msg"></div>
     </div>
-    <div class="daily-weather">
+    <div id="dailyWeather" class="daily-weather">
       <div class="weather-display">
         <div id="dailyContainerLeft" class="weather-display__left"></div>
         <div id="dailyContainerRight" class="weather-display__right">
-          <div id="toggleContainer">
+          <div id="toggleContainer" class="toggle-container">
             <label class="toggle">
               <input class="toggle-checkbox" type="checkbox" checked />
               <div class="toggle-switch"></div>
               <span id="toggleLabel" class="toggle-label">&#8457;</span>
+            </label>
+            <label class="toggle">
+              <input id="themeToggle" class="toggle-checkbox" type="checkbox" />
+              <div class="toggle-switch"></div>
+              <span id="themeLabel" class="toggle-label"><i class="bi bi-brightness-high"></i></span>
             </label>
           </div>
         </div>
