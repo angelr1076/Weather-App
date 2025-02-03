@@ -1,6 +1,6 @@
 # Project: Weather App
 
-[View Weather App](https://odin-weatherly.netlify.app/)
+[View Weather App](https://weatherly-app.pages.dev/)
 
 Weather app project for the Odin Project's JavaScript course path for exposure to promise handling and using Async/Await.
 
